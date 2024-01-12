@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'Contact Support Form' do
+RSpec.describe 'Contact Support Form', :vcr do
   before :each do
     # user_login_data
     # user_select_loc_data
     # visit new_contact_form_path
   end
 
-  xit 'successfully submits the contact form and redirects to dashboard' do
-    VCR.use_cassette("contact form w redirect") do
+  it 'successfully submits the contact form and redirects to dashboard' do
       user_login_data
       user_select_loc_data
       visit new_contact_form_path
@@ -21,6 +20,5 @@ RSpec.describe 'Contact Support Form' do
 
       expect(page).to have_current_path(dashboard_path)
       expect(page).to have_content('Your message has been submitted successfully')
-    end
   end
 end

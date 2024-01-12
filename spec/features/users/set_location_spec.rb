@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Set Location Page', type: :feature do
+RSpec.describe 'Set Location Page', type: :feature, vcr: true do
   before :each do
     user_login_data
   end
@@ -15,17 +15,17 @@ RSpec.describe 'Set Location Page', type: :feature do
   end
 
   xit "user can submit a location and search" do
-    VCR.use_cassette("search location") do
+    # VCR.use_cassette("search location") do
       user_login_data
       find('input[name="city"]').set("Minneapolis")
       select 'MN', from: :state
       click_button "submit"
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("your location: Minneapolis, MN")
-    end
+    # end
   end
 
-  xit "can use a user's location and mood attribute when button is selected" do
+  it "can use a user's location and mood attribute when button is selected" do
     user_login_data
     click_button "Happy"
     expect(current_path).to eq(dashboard_path)

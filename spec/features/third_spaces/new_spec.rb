@@ -21,8 +21,8 @@ RSpec.describe "New Third Space Form", type: :feature do
   end
 
   describe "General Third Space details displayed", :vcr do 
-    xit "lists the the general details including name, category, address, section for tags" do
-      VCR.use_cassette("general info and tags") do
+    it "lists the the general details including name, category, address, section for tags" do
+      # VCR.use_cassette("general info and tags") do
         user_login_data
         user_select_loc_data
         sleep(0.3)
@@ -59,10 +59,10 @@ RSpec.describe "New Third Space Form", type: :feature do
       expect(page).to have_content('Staff responsiveness')
       expect(page).to have_content('Volume')
       expect(page).to have_content('Lighting')
-      end
+      # end
     end
 
-    xit "user can select tags for the submissions" do
+    it "user can select tags for the submissions" do
       # Check 'Happy' mood
       # find("input[name='moods[]'][value='Happy']", visible: :all).check
     

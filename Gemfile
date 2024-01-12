@@ -62,10 +62,12 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "simplecov"
   gem "orderly"
-  gem "webmock"
   gem "vcr"
 end
+group :test do
 
+  gem "webmock"
+end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

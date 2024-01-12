@@ -6,7 +6,7 @@ RSpec.describe 'Saved Locations Index', type: :feature do
     visit saved_locations_path
   end
 
-  xit 'page exists' do
+  it 'page exists' do
     expect(page).to have_content('Saved Locations')
     # expect(page).to have_button('contact us')
     # expect(page).to have_button('contact us')
